@@ -38,7 +38,7 @@
     }
   </style>
 </head>
-<body class="bg-gold-glow text-gray-800 font-sans flex flex-col min-h-screen relative">
+<body class="bg-gold-glow text-gray-800 font-sans flex flex-col min-h-screen">
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="bg-charcoal text-gold-light text-xs py-2.5 px-4 text-center tracking-widest uppercase font-semibold border-b border-gold/30">
@@ -59,8 +59,8 @@
           </div>
         </div>
 
-        <!-- DESKTOP NAV -->
-        <nav class="hidden lg:flex space-x-5 text-xs font-bold uppercase tracking-wider text-gray-700">
+        <!-- DESKTOP CATEGORY NAV WITH SEPARATE ABOUT & CONTACT MENUS -->
+        <nav class="hidden md:flex space-x-5 text-xs font-bold uppercase tracking-wider text-gray-700">
           <button onclick="filterCategory('all')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent text-gold-dark border-gold" data-cat="all">All</button>
           <button onclick="filterCategory('nails')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="nails">Nails</button>
           <button onclick="filterCategory('eyelashes')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="eyelashes">Eyelashes</button>
@@ -68,12 +68,14 @@
           <button onclick="filterCategory('jewelry')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="jewelry">Jewelry</button>
           <button onclick="filterCategory('beauty')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="beauty">Beauty</button>
           <button onclick="filterCategory('fashion')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="fashion">Fashion</button>
+          
+          <!-- SEPARATE MENUS -->
           <a href="#about-us" class="hover:text-gold-dark transition py-1 border-b-2 border-transparent">About Us</a>
           <a href="#contact-us" class="hover:text-gold-dark transition py-1 border-b-2 border-transparent">Contact Us</a>
         </nav>
 
         <!-- CONTACT HEADER INFO -->
-        <div class="hidden xl:flex items-center space-x-4 text-xs font-semibold">
+        <div class="hidden lg:flex items-center space-x-4 text-xs font-semibold">
           <a href="tel:8149412575" class="flex items-center text-charcoal hover:text-gold-dark">
             <i class="fa-solid fa-phone text-gold-dark mr-2"></i> 8149412575
           </a>
@@ -83,7 +85,7 @@
         </div>
 
         <!-- MOBILE MENU ICON -->
-        <button id="mobileMenuBtn" class="lg:hidden text-charcoal text-2xl focus:outline-none">
+        <button id="mobileMenuBtn" class="md:hidden text-charcoal text-2xl focus:outline-none">
           <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -91,7 +93,7 @@
     </div>
 
     <!-- MOBILE NAVIGATION DROPDOWN -->
-    <div id="mobileNav" class="hidden lg:hidden bg-white border-t border-gold-light px-4 py-3 space-y-2 text-xs uppercase font-semibold">
+    <div id="mobileNav" class="hidden md:hidden bg-white border-t border-gold-light px-4 py-3 space-y-2 text-xs uppercase font-semibold">
       <button onclick="filterCategory('all'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">All Products</button>
       <button onclick="filterCategory('nails'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Nails</button>
       <button onclick="filterCategory('eyelashes'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Eyelashes</button>
@@ -99,8 +101,9 @@
       <button onclick="filterCategory('jewelry'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Jewelry</button>
       <button onclick="filterCategory('beauty'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Beauty</button>
       <button onclick="filterCategory('fashion'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Fashion</button>
-      <a href="#about-us" onclick="toggleMobileNav()" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">About Us</a>
-      <a href="#contact-us" onclick="toggleMobileNav()" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Contact Us</a>
+      
+      <a href="#about-us" onclick="toggleMobileNav()" class="block w-full text-left py-2 text-gold-dark border-t border-gray-100 pt-2">About Us</a>
+      <a href="#contact-us" onclick="toggleMobileNav()" class="block w-full text-left py-2 text-gold-dark">Contact Us</a>
     </div>
   </header>
 
@@ -114,7 +117,7 @@
   </section>
 
   <!-- ABOUT US SECTION -->
-  <section id="about-us" class="py-12 bg-white/60 border-b border-gold-light/40 scroll-mt-28">
+  <section id="about-us" class="py-12 bg-white/80 border-b border-gold-light/40">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
       <h3 class="text-2xl font-bold uppercase tracking-widest text-gold-dark mb-3">About Glitzkart</h3>
       <div class="w-16 h-1 bg-gold mx-auto mb-6 rounded-full"></div>
@@ -126,13 +129,16 @@
 
   <!-- MAIN CATALOG -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+
+    <!-- PRODUCT GRID -->
     <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- Dynamically Injected with Carousels -->
+      <!-- Dynamically Injected Carousel Cards -->
     </div>
+
   </main>
 
   <!-- CONTACT & FOOTER SECTION -->
-  <footer id="contact-us" class="bg-charcoal text-gray-300 mt-16 border-t border-gold/30 scroll-mt-28">
+  <footer id="contact-us" class="bg-charcoal text-gray-300 mt-16 border-t border-gold/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
@@ -152,13 +158,13 @@
 
         <!-- QUICK CATEGORY LINKS -->
         <div>
-          <h4 class="text-xs font-bold text-gold uppercase tracking-widest mb-4">Quick Links</h4>
+          <h4 class="text-xs font-bold text-gold uppercase tracking-widest mb-4">Categories</h4>
           <ul class="space-y-2 text-xs font-medium">
-            <li><a href="#about-us" class="hover:text-gold-light transition">About Us</a></li>
             <li><a href="#" onclick="filterCategory('nails')" class="hover:text-gold-light transition">Nails & Accessories</a></li>
             <li><a href="#" onclick="filterCategory('eyelashes')" class="hover:text-gold-light transition">3D Lash Extensions</a></li>
             <li><a href="#" onclick="filterCategory('hair')" class="hover:text-gold-light transition">Hair Extensions</a></li>
             <li><a href="#" onclick="filterCategory('jewelry')" class="hover:text-gold-light transition">Fashion Jewelry</a></li>
+            <li><a href="#" onclick="filterCategory('beauty')" class="hover:text-gold-light transition">Beauty & Cosmetics</a></li>
           </ul>
         </div>
 
@@ -195,12 +201,12 @@
     </div>
   </footer>
 
-  <!-- FLOATING SOCIAL BUTTONS CONTAINER (RIGHT SIDE) -->
-  <div class="fixed top-1/2 right-4 -translate-y-1/2 z-50 flex flex-col space-y-3">
+  <!-- FLOATING SOCIAL BUTTONS CONTAINER -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
     <!-- FLOATING INSTAGRAM BUTTON -->
     <a href="https://www.instagram.com/glitz.kart/" 
        target="_blank" 
-       aria-label="Visit Instagram"
+       aria-label="Follow us on Instagram"
        class="bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full p-3.5 shadow-2xl flex items-center justify-center transition-transform transform hover:scale-110">
       <i class="fa-brands fa-instagram text-2xl"></i>
     </a>
@@ -233,16 +239,11 @@
         </div>
       </div>
 
-      <!-- INQUIRY FORM -->
+      <!-- INQUIRY FORM (CONTACT NUMBER FIELD REMOVED) -->
       <form id="whatsappForm" onsubmit="submitToWhatsApp(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Your Name *</label>
           <input type="text" id="custName" required placeholder="Enter your full name" class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-gold bg-gold-glow">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Your Contact / WhatsApp Number *</label>
-          <input type="tel" id="custPhone" required placeholder="Enter 10-digit mobile number" class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-gold bg-gold-glow">
         </div>
 
         <div>
@@ -266,7 +267,7 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // PRODUCTS WITH 3 SCROLLABLE IMAGES PER PRODUCT
+    // PRODUCT CATALOG WITH 3 IMAGES PER ITEM FOR SCROLLING CAROUSELS
     const products = [
       { 
         id: 1, 
@@ -278,7 +279,7 @@
           "https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3997383/pexels-photo-3997383.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3997385/pexels-photo-3997385.jpeg?auto=compress&cs=tinysrgb&w=600"
-        ] 
+        ]
       },
       { 
         id: 2, 
@@ -290,7 +291,7 @@
           "https://images.pexels.com/photos/2688992/pexels-photo-2688992.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=600"
-        ] 
+        ]
       },
       { 
         id: 3, 
@@ -301,8 +302,8 @@
         images: [
           "https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/973401/pexels-photo-973401.jpeg?auto=compress&cs=tinysrgb&w=600",
-          "https://images.pexels.com/photos/2916814/pexels-photo-2916814.jpeg?auto=compress&cs=tinysrgb&w=600"
-        ] 
+          "https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=600"
+        ]
       },
       { 
         id: 4, 
@@ -314,7 +315,7 @@
           "https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=600"
-        ] 
+        ]
       },
       { 
         id: 5, 
@@ -324,9 +325,9 @@
         rating: 4.6, 
         images: [
           "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=600",
-          "https://images.pexels.com/photos/2688992/pexels-photo-2688992.jpeg?auto=compress&cs=tinysrgb&w=600",
-          "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600"
-        ] 
+          "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600",
+          "https://images.pexels.com/photos/2688992/pexels-photo-2688992.jpeg?auto=compress&cs=tinysrgb&w=600"
+        ]
       },
       { 
         id: 6, 
@@ -338,7 +339,7 @@
           "https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=600"
-        ] 
+        ]
       },
       { 
         id: 7, 
@@ -350,7 +351,7 @@
           "https://images.pexels.com/photos/3997383/pexels-photo-3997383.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3997385/pexels-photo-3997385.jpeg?auto=compress&cs=tinysrgb&w=600"
-        ] 
+        ]
       },
       { 
         id: 8, 
@@ -362,13 +363,11 @@
           "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/2688992/pexels-photo-2688992.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=600"
-        ] 
+        ]
       }
     ];
 
     let currentCategory = "all";
-    // Stores current active image index for each product card
-    const currentSlideIndex = {};
 
     document.addEventListener("DOMContentLoaded", () => {
       renderProducts(products);
@@ -397,88 +396,57 @@
       renderProducts(filtered);
     }
 
-    // CAROUSEL NAVIGATION FUNCTIONS
-    function prevSlide(productId) {
-      const prod = products.find(p => p.id === productId);
-      if (!prod) return;
-      currentSlideIndex[productId] = (currentSlideIndex[productId] - 1 + prod.images.length) % prod.images.length;
-      updateSlideDisplay(productId, prod.images);
+    // CAROUSEL SWITCHING FUNCTION
+    function setSlide(productId, imgIndex) {
+      const carousel = document.getElementById(`carousel-${productId}`);
+      if (!carousel) return;
+
+      carousel.style.transform = `translateX(-${imgIndex * 100}%)`;
+
+      const dots = document.querySelectorAll(`.dot-${productId}`);
+      dots.forEach((dot, idx) => {
+        if (idx === imgIndex) {
+          dot.classList.add('bg-gold', 'w-5');
+          dot.classList.remove('bg-white/70', 'w-2');
+        } else {
+          dot.classList.remove('bg-gold', 'w-5');
+          dot.classList.add('bg-white/70', 'w-2');
+        }
+      });
     }
 
-    function nextSlide(productId) {
-      const prod = products.find(p => p.id === productId);
-      if (!prod) return;
-      currentSlideIndex[productId] = (currentSlideIndex[productId] + 1) % prod.images.length;
-      updateSlideDisplay(productId, prod.images);
-    }
-
-    function goToSlide(productId, slideIdx) {
-      const prod = products.find(p => p.id === productId);
-      if (!prod) return;
-      currentSlideIndex[productId] = slideIdx;
-      updateSlideDisplay(productId, prod.images);
-    }
-
-    function updateSlideDisplay(productId, images) {
-      const imgElem = document.getElementById(`prod-img-${productId}`);
-      const dotsElem = document.getElementById(`dots-container-${productId}`);
-      const activeIdx = currentSlideIndex[productId];
-
-      if (imgElem) {
-        imgElem.src = images[activeIdx];
-      }
-
-      if (dotsElem) {
-        const dots = dotsElem.querySelectorAll('.dot-indicator');
-        dots.forEach((dot, idx) => {
-          if (idx === activeIdx) {
-            dot.classList.add('bg-gold', 'w-4');
-            dot.classList.remove('bg-white/60', 'w-2');
-          } else {
-            dot.classList.remove('bg-gold', 'w-4');
-            dot.classList.add('bg-white/60', 'w-2');
-          }
-        });
-      }
-    }
-
-    // RENDER PRODUCTS WITH SLIDER CAROUSEL
+    // RENDER PRODUCTS WITH SLIDING IMAGE CAROUSELS
     function renderProducts(items) {
       const grid = document.getElementById("productGrid");
       grid.innerHTML = "";
 
       items.forEach(product => {
-        currentSlideIndex[product.id] = 0; // Initialize starting image
-
         const card = document.createElement("div");
         card.className = "bg-white rounded-2xl shadow-sm border border-gold-light/60 overflow-hidden hover:shadow-xl transition duration-300 flex flex-col justify-between group";
-        
-        // Generate Carousel Dot Indicators
+
+        const slidesHtml = product.images.map((imgUrl) => `
+          <img src="${imgUrl}" alt="${product.name}" class="w-full h-full object-cover flex-shrink-0" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/F4E8C1/1A1A1A?text=Glitzkart+Product';">
+        `).join('');
+
         const dotsHtml = product.images.map((_, idx) => `
-          <button onclick="goToSlide(${product.id}, ${idx})" class="dot-indicator h-2 rounded-full transition-all ${idx === 0 ? 'bg-gold w-4' : 'bg-white/60 w-2'}"></button>
+          <button onclick="setSlide(${product.id}, ${idx})" class="dot-${product.id} h-2 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-gold w-5' : 'bg-white/70 w-2'}"></button>
         `).join('');
 
         card.innerHTML = `
           <div>
             <!-- CAROUSEL IMAGE CONTAINER -->
             <div class="relative h-60 bg-gray-100 overflow-hidden">
-              <img id="prod-img-${product.id}" src="${product.images[0]}" alt="${product.name}" class="w-full h-full object-cover transition duration-300" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/F4E8C1/1A1A1A?text=Glitzkart+Product';">
-              
+              <div id="carousel-${product.id}" class="flex w-full h-full transition-transform duration-500 ease-out">
+                ${slidesHtml}
+              </div>
+
               <!-- RATING BADGE -->
               <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-charcoal text-xs px-2.5 py-1 rounded-full font-bold shadow-sm z-10">
                 ★ ${product.rating}
               </span>
 
-              <!-- LEFT & RIGHT SLIDE BUTTONS -->
-              <button onclick="prevSlide(${product.id})" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full h-8 w-8 flex items-center justify-center transition z-10">
-                <i class="fa-solid fa-chevron-left text-xs"></i>
-              </button>
-              <button onclick="nextSlide(${product.id})" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full h-8 w-8 flex items-center justify-center transition z-10">
-                <i class="fa-solid fa-chevron-right text-xs"></i>
-              </button>
-
-              <!-- DOT INDICATORS -->
-              <div id="dots-container-${product.id}" class="absolute bottom-3 left-0 right-0 flex justify-center space-x-1.5 z-10">
+              <!-- CAROUSEL DOTS -->
+              <div class="absolute bottom-3 left-0 right-0 flex justify-center space-x-1.5 z-10">
                 ${dotsHtml}
               </div>
             </div>
@@ -521,13 +489,11 @@
       e.preventDefault();
       
       const name = document.getElementById("custName").value;
-      const phone = document.getElementById("custPhone").value;
       const product = document.getElementById("custProduct").value;
       const note = document.getElementById("custNote").value;
 
       const message = `✨ *New Order Inquiry - Glitzkart* ✨%0A%0A` +
                       `👤 *Customer Name:* ${encodeURIComponent(name)}%0A` +
-                      `📞 *Contact Number:* ${encodeURIComponent(phone)}%0A` +
                       `🛍️ *Product:* ${encodeURIComponent(product)}%0A` +
                       (note ? `📝 *Note:* ${encodeURIComponent(note)}%0A` : '') +
                       `%0AHello Glitzkart team, please share availability and ordering details!`;
