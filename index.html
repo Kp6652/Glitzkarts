@@ -115,7 +115,7 @@
     </div>
   </section>
 
-  <!-- MAIN HERO SHOWCASE SLIDER (1.png to 21.png SERIALLY) -->
+  <!-- MAIN HERO SHOWCASE SLIDER (1.png to 21.png) -->
   <section class="py-10 bg-charcoal text-white relative overflow-hidden border-b border-gold/40">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-6">
@@ -158,6 +158,11 @@
 
   <!-- MAIN CATALOG -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+
+    <div class="mb-6 text-center">
+      <h3 class="text-2xl font-bold uppercase tracking-widest text-gold-dark">Our Product Catalog</h3>
+      <p class="text-xs text-gray-500 mt-1">Use arrows or swipe left/right on any product to view all images</p>
+    </div>
 
     <!-- PRODUCT GRID -->
     <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -230,20 +235,12 @@
     </div>
   </footer>
 
-  <!-- FLOATING SOCIAL BUTTONS CONTAINER -->
+  <!-- FLOATING SOCIAL BUTTONS -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
-    <!-- FLOATING INSTAGRAM BUTTON -->
-    <a href="https://www.instagram.com/glitz.kart/" 
-       target="_blank" 
-       aria-label="Follow us on Instagram"
-       class="bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full p-3.5 shadow-2xl flex items-center justify-center transition-transform transform hover:scale-110">
+    <a href="https://www.instagram.com/glitz.kart/" target="_blank" aria-label="Follow us on Instagram" class="bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full p-3.5 shadow-2xl flex items-center justify-center transition-transform transform hover:scale-110">
       <i class="fa-brands fa-instagram text-2xl"></i>
     </a>
-
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <button onclick="openGeneralInquiry()" 
-       aria-label="Chat on WhatsApp"
-       class="bg-green-500 hover:bg-green-600 text-white rounded-full p-3.5 shadow-2xl flex items-center justify-center transition-transform transform hover:scale-110">
+    <button onclick="openGeneralInquiry()" aria-label="Chat on WhatsApp" class="bg-green-500 hover:bg-green-600 text-white rounded-full p-3.5 shadow-2xl flex items-center justify-center transition-transform transform hover:scale-110">
       <i class="fa-brands fa-whatsapp text-2xl"></i>
     </button>
   </div>
@@ -251,13 +248,10 @@
   <!-- INTERACTIVE WHATSAPP INQUIRY MODAL -->
   <div id="inquiryModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
     <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-gold-light">
-      
-      <!-- CLOSE BUTTON -->
       <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-charcoal text-xl focus:outline-none">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- MODAL HEADER -->
       <div class="flex items-center space-x-3 mb-4">
         <div class="bg-green-100 text-green-600 p-2.5 rounded-full">
           <i class="fa-brands fa-whatsapp text-2xl"></i>
@@ -268,7 +262,6 @@
         </div>
       </div>
 
-      <!-- INQUIRY FORM -->
       <form id="whatsappForm" onsubmit="submitToWhatsApp(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Your Name *</label>
@@ -290,26 +283,20 @@
           <span>Open WhatsApp & Submit</span>
         </button>
       </form>
-
     </div>
   </div>
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // MAIN HERO SLIDER IMAGES (1.png to 21.png GENERATED SERIALLY)
+    // MAIN HERO SLIDER IMAGES (1.png to 21.png)
     const heroImages = Array.from({ length: 21 }, (_, i) => `${i + 1}.png`);
-
     let currentHeroIndex = 0;
     let heroTimer = null;
 
-    // PRODUCT CATALOG WITH 3 IMAGES PER ITEM FOR CAROUSELS
+    // PRODUCT CATALOG WITH 3 IMAGES EACH & INDEPENDENT SLIDER STATE
     const products = [
       { 
-        id: 1, 
-        name: "Luxury French Gel Press-On Nails", 
-        category: "nails", 
-        price: 499, 
-        rating: 4.9, 
+        id: 1, name: "Luxury French Gel Press-On Nails", category: "nails", price: 499, rating: 4.9, currentIndex: 0,
         images: [
           "https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3997383/pexels-photo-3997383.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -317,11 +304,7 @@
         ]
       },
       { 
-        id: 2, 
-        name: "3D Voluminous Mink Eyelashes", 
-        category: "eyelashes", 
-        price: 349, 
-        rating: 4.8, 
+        id: 2, name: "3D Voluminous Mink Eyelashes", category: "eyelashes", price: 349, rating: 4.8, currentIndex: 0,
         images: [
           "https://images.pexels.com/photos/2688992/pexels-photo-2688992.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -329,11 +312,7 @@
         ]
       },
       { 
-        id: 3, 
-        name: "Seamless Clip-in Hair Extensions", 
-        category: "hair", 
-        price: 1299, 
-        rating: 4.7, 
+        id: 3, name: "Seamless Clip-in Hair Extensions", category: "hair", price: 1299, rating: 4.7, currentIndex: 0,
         images: [
           "https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/973401/pexels-photo-973401.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -341,11 +320,7 @@
         ]
       },
       { 
-        id: 4, 
-        name: "Golden Anti-Tarnish Kundan Jhumka", 
-        category: "jewelry", 
-        price: 799, 
-        rating: 4.9, 
+        id: 4, name: "Golden Anti-Tarnish Kundan Jhumka", category: "jewelry", price: 799, rating: 4.9, currentIndex: 0,
         images: [
           "https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -353,11 +328,7 @@
         ]
       },
       { 
-        id: 5, 
-        name: "Velvet Matte Liquid Lipstick Set", 
-        category: "beauty", 
-        price: 599, 
-        rating: 4.6, 
+        id: 5, name: "Velvet Matte Liquid Lipstick Set", category: "beauty", price: 599, rating: 4.6, currentIndex: 0,
         images: [
           "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -365,11 +336,7 @@
         ]
       },
       { 
-        id: 6, 
-        name: "Minimalist Layered Gold Chain", 
-        category: "fashion", 
-        price: 449, 
-        rating: 4.5, 
+        id: 6, name: "Minimalist Layered Gold Chain", category: "fashion", price: 449, rating: 4.5, currentIndex: 0,
         images: [
           "https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -377,11 +344,7 @@
         ]
       },
       { 
-        id: 7, 
-        name: "Almond Shaped Designer Press-On Set", 
-        category: "nails", 
-        price: 399, 
-        rating: 4.8, 
+        id: 7, name: "Almond Shaped Designer Press-On Set", category: "nails", price: 399, rating: 4.8, currentIndex: 0,
         images: [
           "https://images.pexels.com/photos/3997383/pexels-photo-3997383.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -389,11 +352,7 @@
         ]
       },
       { 
-        id: 8, 
-        name: "Natural Wispy Everyday Lash Set", 
-        category: "eyelashes", 
-        price: 299, 
-        rating: 4.9, 
+        id: 8, name: "Natural Wispy Everyday Lash Set", category: "eyelashes", price: 299, rating: 4.9, currentIndex: 0,
         images: [
           "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600",
           "https://images.pexels.com/photos/2688992/pexels-photo-2688992.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -409,7 +368,7 @@
       renderProducts(products);
     });
 
-    // HERO SLIDER INIT & FUNCTIONS (1.png TO 21.png)
+    // HERO SLIDER FUNCTIONS (1.png TO 21.png)
     function initHeroSlider() {
       const slider = document.getElementById("mainHeroSlider");
       const dotsContainer = document.getElementById("heroDots");
@@ -494,16 +453,35 @@
       renderProducts(filtered);
     }
 
-    // CAROUSEL SWITCHING FUNCTION FOR PRODUCTS
-    function setSlide(productId, imgIndex) {
-      const carousel = document.getElementById(`carousel-${productId}`);
-      if (!carousel) return;
+    // PRODUCT CAROUSEL SCROLLING FUNCTIONS
+    function changeProductSlide(productId, step) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
 
-      carousel.style.transform = `translateX(-${imgIndex * 100}%)`;
+      product.currentIndex = (product.currentIndex + step + product.images.length) % product.images.length;
+      updateProductCardSlider(productId);
+    }
 
-      const dots = document.querySelectorAll(`.dot-${productId}`);
+    function setProductSlide(productId, slideIndex) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      product.currentIndex = slideIndex;
+      updateProductCardSlider(productId);
+    }
+
+    function updateProductCardSlider(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      const track = document.getElementById(`prod-track-${productId}`);
+      if (track) {
+        track.style.transform = `translateX(-${product.currentIndex * 100}%)`;
+      }
+
+      const dots = document.querySelectorAll(`.dot-prod-${productId}`);
       dots.forEach((dot, idx) => {
-        if (idx === imgIndex) {
+        if (idx === product.currentIndex) {
           dot.classList.add('bg-gold', 'w-5');
           dot.classList.remove('bg-white/70', 'w-2');
         } else {
@@ -513,7 +491,7 @@
       });
     }
 
-    // RENDER PRODUCTS WITH SLIDING IMAGE CAROUSELS
+    // RENDER PRODUCTS WITH FUNCTIONAL IMAGE CAROUSELS & SWIPE SUPPORT
     function renderProducts(items) {
       const grid = document.getElementById("productGrid");
       grid.innerHTML = "";
@@ -527,14 +505,13 @@
         `).join('');
 
         const dotsHtml = product.images.map((_, idx) => `
-          <button onclick="setSlide(${product.id}, ${idx})" class="dot-${product.id} h-2 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-gold w-5' : 'bg-white/70 w-2'}"></button>
+          <button onclick="setProductSlide(${product.id}, ${idx})" class="dot-prod-${product.id} h-2 rounded-full transition-all duration-300 ${idx === product.currentIndex ? 'bg-gold w-5' : 'bg-white/70 w-2'}"></button>
         `).join('');
 
         card.innerHTML = `
           <div>
-            <!-- CAROUSEL IMAGE CONTAINER -->
-            <div class="relative h-60 bg-gray-100 overflow-hidden">
-              <div id="carousel-${product.id}" class="flex w-full h-full transition-transform duration-500 ease-out">
+            <div class="relative h-60 bg-gray-100 overflow-hidden" id="prod-box-${product.id}">
+              <div id="prod-track-${product.id}" class="flex w-full h-full transition-transform duration-500 ease-out">
                 ${slidesHtml}
               </div>
 
@@ -542,6 +519,14 @@
               <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-charcoal text-xs px-2.5 py-1 rounded-full font-bold shadow-sm z-10">
                 ★ ${product.rating}
               </span>
+
+              <!-- LEFT & RIGHT CAROUSEL BUTTONS -->
+              <button onclick="changeProductSlide(${product.id}, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-gold text-white hover:text-charcoal w-7 h-7 rounded-full flex items-center justify-center transition z-10">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+              <button onclick="changeProductSlide(${product.id}, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-gold text-white hover:text-charcoal w-7 h-7 rounded-full flex items-center justify-center transition z-10">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
 
               <!-- CAROUSEL DOTS -->
               <div class="absolute bottom-3 left-0 right-0 flex justify-center space-x-1.5 z-10">
@@ -563,7 +548,26 @@
             </button>
           </div>
         `;
+
         grid.appendChild(card);
+
+        // ADD TOUCH SWIPE EVENT LISTENERS
+        const box = document.getElementById(`prod-box-${product.id}`);
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        box.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        box.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchStartX - touchEndX > 40) {
+            changeProductSlide(product.id, 1);
+          } else if (touchEndX - touchStartX > 40) {
+            changeProductSlide(product.id, -1);
+          }
+        }, { passive: true });
       });
     }
 
@@ -582,10 +586,8 @@
       document.getElementById("inquiryModal").classList.add("hidden");
     }
 
-    // SUBMIT FORM DIRECTLY TO WHATSAPP
     function submitToWhatsApp(e) {
       e.preventDefault();
-      
       const name = document.getElementById("custName").value;
       const product = document.getElementById("custProduct").value;
       const note = document.getElementById("custNote").value;
@@ -597,7 +599,6 @@
                       `%0AHello Glitzkart team, please share availability and ordering details!`;
 
       window.open(`https://wa.me/918149412575?text=${message}`, '_blank');
-      
       closeModal();
       document.getElementById("whatsappForm").reset();
     }
