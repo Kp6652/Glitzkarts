@@ -59,7 +59,7 @@
           </div>
         </div>
 
-        <!-- DESKTOP CATEGORY NAV WITH SEPARATE ABOUT & CONTACT MENUS -->
+        <!-- DESKTOP CATEGORY NAV -->
         <nav class="hidden md:flex space-x-5 text-xs font-bold uppercase tracking-wider text-gray-700">
           <button onclick="filterCategory('all')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent text-gold-dark border-gold" data-cat="all">All</button>
           <button onclick="filterCategory('nails')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="nails">Nails</button>
@@ -69,7 +69,6 @@
           <button onclick="filterCategory('beauty')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="beauty">Beauty</button>
           <button onclick="filterCategory('fashion')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="fashion">Fashion</button>
           
-          <!-- SEPARATE MENUS -->
           <a href="#about-us" class="hover:text-gold-dark transition py-1 border-b-2 border-transparent">About Us</a>
           <a href="#contact-us" class="hover:text-gold-dark transition py-1 border-b-2 border-transparent">Contact Us</a>
         </nav>
@@ -116,6 +115,36 @@
     </div>
   </section>
 
+  <!-- MAIN HERO SHOWCASE SLIDER (1.png to 21.png SERIALLY) -->
+  <section class="py-10 bg-charcoal text-white relative overflow-hidden border-b border-gold/40">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-6">
+        <span class="text-[10px] uppercase font-bold tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Studio Showcase</span>
+        <h3 class="text-2xl font-bold uppercase tracking-widest text-gold-light mt-2">Explore Glitzkart Store & Salon Setup</h3>
+      </div>
+
+      <!-- MAIN SLIDER CONTAINER -->
+      <div class="relative max-w-4xl mx-auto h-[350px] sm:h-[480px] rounded-2xl overflow-hidden border-2 border-gold/60 shadow-2xl bg-black">
+        <div id="mainHeroSlider" class="flex w-full h-full transition-transform duration-700 ease-in-out">
+          <!-- Dynamically Injected 1.png to 21.png -->
+        </div>
+
+        <!-- LEFT & RIGHT ARROWS -->
+        <button onclick="prevHeroSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-gold text-white hover:text-charcoal p-3 rounded-full transition z-20">
+          <i class="fa-solid fa-chevron-left text-lg"></i>
+        </button>
+        <button onclick="nextHeroSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-gold text-white hover:text-charcoal p-3 rounded-full transition z-20">
+          <i class="fa-solid fa-chevron-right text-lg"></i>
+        </button>
+
+        <!-- DOTS NAV -->
+        <div id="heroDots" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-1.5 z-20 flex-wrap px-4">
+          <!-- Dynamically Injected -->
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT US SECTION -->
   <section id="about-us" class="py-12 bg-white/80 border-b border-gold-light/40">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
@@ -132,7 +161,7 @@
 
     <!-- PRODUCT GRID -->
     <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- Dynamically Injected Carousel Cards -->
+      <!-- Dynamically Injected Cards -->
     </div>
 
   </main>
@@ -239,7 +268,7 @@
         </div>
       </div>
 
-      <!-- INQUIRY FORM (CONTACT NUMBER FIELD REMOVED) -->
+      <!-- INQUIRY FORM -->
       <form id="whatsappForm" onsubmit="submitToWhatsApp(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Your Name *</label>
@@ -267,7 +296,13 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // PRODUCT CATALOG WITH 3 IMAGES PER ITEM FOR SCROLLING CAROUSELS
+    // MAIN HERO SLIDER IMAGES (1.png to 21.png GENERATED SERIALLY)
+    const heroImages = Array.from({ length: 21 }, (_, i) => `${i + 1}.png`);
+
+    let currentHeroIndex = 0;
+    let heroTimer = null;
+
+    // PRODUCT CATALOG WITH 3 IMAGES PER ITEM FOR CAROUSELS
     const products = [
       { 
         id: 1, 
@@ -370,8 +405,71 @@
     let currentCategory = "all";
 
     document.addEventListener("DOMContentLoaded", () => {
+      initHeroSlider();
       renderProducts(products);
     });
+
+    // HERO SLIDER INIT & FUNCTIONS (1.png TO 21.png)
+    function initHeroSlider() {
+      const slider = document.getElementById("mainHeroSlider");
+      const dotsContainer = document.getElementById("heroDots");
+
+      slider.innerHTML = heroImages.map((img) => `
+        <img src="${img}" alt="Glitzkart Showcase" class="w-full h-full object-cover flex-shrink-0" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500/1A1A1A/D4AF37?text=Glitzkart+Studio';">
+      `).join('');
+
+      dotsContainer.innerHTML = heroImages.map((_, idx) => `
+        <button onclick="goHeroSlide(${idx})" class="hero-dot h-2 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-gold w-4' : 'bg-white/50 w-2'}"></button>
+      `).join('');
+
+      startHeroAutoPlay();
+    }
+
+    function updateHeroSlide() {
+      const slider = document.getElementById("mainHeroSlider");
+      slider.style.transform = `translateX(-${currentHeroIndex * 100}%)`;
+
+      const dots = document.querySelectorAll(".hero-dot");
+      dots.forEach((dot, idx) => {
+        if (idx === currentHeroIndex) {
+          dot.classList.add("bg-gold", "w-4");
+          dot.classList.remove("bg-white/50", "w-2");
+        } else {
+          dot.classList.remove("bg-gold", "w-4");
+          dot.classList.add("bg-white/50", "w-2");
+        }
+      });
+    }
+
+    function nextHeroSlide() {
+      currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+      updateHeroSlide();
+      resetHeroAutoPlay();
+    }
+
+    function prevHeroSlide() {
+      currentHeroIndex = (currentHeroIndex - 1 + heroImages.length) % heroImages.length;
+      updateHeroSlide();
+      resetHeroAutoPlay();
+    }
+
+    function goHeroSlide(idx) {
+      currentHeroIndex = idx;
+      updateHeroSlide();
+      resetHeroAutoPlay();
+    }
+
+    function startHeroAutoPlay() {
+      heroTimer = setInterval(() => {
+        currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+        updateHeroSlide();
+      }, 3500);
+    }
+
+    function resetHeroAutoPlay() {
+      clearInterval(heroTimer);
+      startHeroAutoPlay();
+    }
 
     // MOBILE MENU
     document.getElementById("mobileMenuBtn").addEventListener("click", toggleMobileNav);
@@ -396,7 +494,7 @@
       renderProducts(filtered);
     }
 
-    // CAROUSEL SWITCHING FUNCTION
+    // CAROUSEL SWITCHING FUNCTION FOR PRODUCTS
     function setSlide(productId, imgIndex) {
       const carousel = document.getElementById(`carousel-${productId}`);
       if (!carousel) return;
