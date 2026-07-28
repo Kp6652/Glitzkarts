@@ -11,7 +11,7 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Custom Theme Colors based on Golden Accent -->
+  <!-- Custom Theme Colors based on Golden Finish -->
   <script>
     tailwind.config = {
       theme: {
@@ -20,9 +20,9 @@
             gold: {
               DEFAULT: '#D4AF37',
               light: '#F4E8C1',
-              dark: '#B38F2A',
-              glow: '#FFFDF5'
+              dark: '#AA820A'
             },
+            blush: '#FAF8F5',
             charcoal: '#1A1A1A'
           }
         }
@@ -31,6 +31,7 @@
   </script>
 
   <style>
+    /* Smooth Scrolling & Glassmorphism */
     html { scroll-behavior: smooth; }
     .glass-effect {
       background: rgba(255, 255, 255, 0.95);
@@ -38,44 +39,44 @@
     }
   </style>
 </head>
-<body class="bg-gold-glow text-gray-800 font-sans flex flex-col min-h-screen">
+<body class="bg-blush text-gray-800 font-sans flex flex-col min-h-screen relative">
 
   <!-- ANNOUNCEMENT BAR -->
-  <div class="bg-charcoal text-gold-light text-xs py-2.5 px-4 text-center tracking-widest uppercase font-semibold border-b border-gold/30">
-    ✨ Welcome to Glitzkart — The Ultimate Destination for Trendsetters | PAN-India Express Shipping
+  <div class="bg-charcoal text-white text-xs py-2 px-4 text-center tracking-widest uppercase font-medium">
+    ✨ Welcome to Glitzkart — The Ultimate Destination for Trendsetters | PAN-India Express Delivery
   </div>
 
   <!-- NAVIGATION HEADER -->
-  <header class="sticky top-0 z-40 glass-effect border-b border-gold-light/60 shadow-sm">
+  <header class="sticky top-0 z-40 glass-effect border-b border-gold-light shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-24">
         
         <!-- LOGO & BRAND NAME -->
         <div class="flex items-center space-x-3 cursor-pointer" onclick="filterCategory('all')">
-          <img src="image_3.png" alt="Glitzkart Logo" class="h-16 w-16 rounded-full object-cover border-2 border-gold shadow-md" onerror="this.onerror=null; this.src='https://via.placeholder.com/60/1A1A1A/D4AF37?text=GK';">
+          <img src="image_3.png" alt="Glitzkart Logo" class="h-16 w-16 rounded-full object-cover border-2 border-gold shadow-sm" onerror="this.onerror=null; this.src='https://via.placeholder.com/60?text=GK';">
           <div>
-            <h1 class="text-2xl font-bold tracking-widest text-gold-dark uppercase">GLITZKART</h1>
-            <p class="text-[10px] md:text-xs text-gray-600 font-semibold tracking-wider">THE ULTIMATE DESTINATION FOR TRENDSETTERS</p>
+            <h1 class="text-2xl font-bold tracking-widest text-charcoal uppercase">GLITZKART</h1>
+            <p class="text-[10px] md:text-xs text-gold-dark font-medium tracking-wider">THE ULTIMATE DESTINATION FOR TRENDSETTERS</p>
           </div>
         </div>
 
         <!-- DESKTOP CATEGORY NAV -->
         <nav class="hidden md:flex space-x-6 text-xs font-bold uppercase tracking-wider text-gray-700">
-          <button onclick="filterCategory('all')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent text-gold-dark border-gold" data-cat="all">All</button>
-          <button onclick="filterCategory('nails')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="nails">Nails</button>
-          <button onclick="filterCategory('eyelashes')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="eyelashes">Eyelashes</button>
-          <button onclick="filterCategory('hair')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="hair">Hair</button>
-          <button onclick="filterCategory('jewelry')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="jewelry">Jewelry</button>
-          <button onclick="filterCategory('beauty')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="beauty">Beauty</button>
-          <button onclick="filterCategory('fashion')" class="nav-btn hover:text-gold-dark transition py-1 border-b-2 border-transparent" data-cat="fashion">Fashion</button>
+          <button onclick="filterCategory('all')" class="nav-btn hover:text-gold transition py-1 border-b-2 border-transparent text-gold border-gold" data-cat="all">All</button>
+          <button onclick="filterCategory('nails')" class="nav-btn hover:text-gold transition py-1 border-b-2 border-transparent" data-cat="nails">Nails</button>
+          <button onclick="filterCategory('eyelashes')" class="nav-btn hover:text-gold transition py-1 border-b-2 border-transparent" data-cat="eyelashes">Eyelashes</button>
+          <button onclick="filterCategory('hair')" class="nav-btn hover:text-gold transition py-1 border-b-2 border-transparent" data-cat="hair">Hair</button>
+          <button onclick="filterCategory('jewelry')" class="nav-btn hover:text-gold transition py-1 border-b-2 border-transparent" data-cat="jewelry">Jewelry</button>
+          <button onclick="filterCategory('beauty')" class="nav-btn hover:text-gold transition py-1 border-b-2 border-transparent" data-cat="beauty">Beauty</button>
+          <button onclick="filterCategory('fashion')" class="nav-btn hover:text-gold transition py-1 border-b-2 border-transparent" data-cat="fashion">Fashion</button>
         </nav>
 
         <!-- CONTACT HEADER INFO -->
         <div class="hidden lg:flex items-center space-x-4 text-xs font-semibold">
-          <a href="tel:8149412575" class="flex items-center text-charcoal hover:text-gold-dark">
-            <i class="fa-solid fa-phone text-gold-dark mr-2"></i> 8149412575
+          <a href="tel:8149412575" class="flex items-center text-charcoal hover:text-gold">
+            <i class="fa-solid fa-phone text-gold mr-2"></i> 8149412575
           </a>
-          <button onclick="openGeneralInquiry()" class="bg-charcoal text-gold-light hover:bg-gold-dark hover:text-white transition px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+          <button onclick="openGeneralInquiry()" class="bg-charcoal text-white hover:bg-gold transition px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
             Quick Inquiry
           </button>
         </div>
@@ -90,58 +91,86 @@
 
     <!-- MOBILE NAVIGATION DROPDOWN -->
     <div id="mobileNav" class="hidden md:hidden bg-white border-t border-gold-light px-4 py-3 space-y-2 text-xs uppercase font-semibold">
-      <button onclick="filterCategory('all'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">All Products</button>
-      <button onclick="filterCategory('nails'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Nails</button>
-      <button onclick="filterCategory('eyelashes'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Eyelashes</button>
-      <button onclick="filterCategory('hair'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Hair Extensions</button>
-      <button onclick="filterCategory('jewelry'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Jewelry</button>
-      <button onclick="filterCategory('beauty'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Beauty</button>
-      <button onclick="filterCategory('fashion'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold-dark">Fashion</button>
+      <button onclick="filterCategory('all'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold">All Products</button>
+      <button onclick="filterCategory('nails'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold">Nails</button>
+      <button onclick="filterCategory('eyelashes'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold">Eyelashes</button>
+      <button onclick="filterCategory('hair'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold">Hair Extensions</button>
+      <button onclick="filterCategory('jewelry'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold">Jewelry</button>
+      <button onclick="filterCategory('beauty'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold">Beauty</button>
+      <button onclick="filterCategory('fashion'); toggleMobileNav();" class="block w-full text-left py-2 text-gray-700 hover:text-gold">Fashion</button>
     </div>
   </header>
 
   <!-- HERO BANNER -->
-  <section class="bg-white py-12 px-4 text-center border-b border-gold-light/50 relative overflow-hidden">
+  <section class="bg-white py-12 px-4 text-center border-b border-gold-light relative overflow-hidden">
     <div class="max-w-4xl mx-auto">
-      <span class="text-xs uppercase font-bold tracking-widest text-gold-dark bg-gold-light/60 px-4 py-1.5 rounded-full border border-gold/30">Curated Luxury Collection</span>
-      <h2 class="text-3xl md:text-5xl font-extrabold text-gold-dark mt-4 tracking-tight">Luxury Beauty & Fashion Hub</h2>
+      <span class="text-xs uppercase font-bold tracking-widest text-gold-dark bg-gold-light px-4 py-1.5 rounded-full border border-gold/30">Curated Glamour Collection</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-charcoal mt-4 tracking-tight">Luxury Beauty & Fashion Hub</h2>
       <p class="text-gray-600 text-sm md:text-base mt-3 max-w-2xl mx-auto">Discover press-on nails, voluminous lashes, hair extensions, and statement artificial jewelry crafted for trendsetters.</p>
     </div>
   </section>
 
-  <!-- ABOUT US SECTION -->
-  <section class="py-12 bg-white/60 border-b border-gold-light/40">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <h3 class="text-2xl font-bold uppercase tracking-widest text-gold-dark mb-3">About Glitzkart</h3>
-      <div class="w-16 h-1 bg-gold mx-auto mb-6 rounded-full"></div>
-      <p class="text-gray-700 text-sm md:text-base leading-relaxed max-w-3xl mx-auto">
-        Welcome to <span class="font-semibold text-charcoal">Glitzkart</span> — your premier online destination for high-fashion beauty accessories, salon-grade press-on nails, dramatic 3D eyelash extensions, premium hair pieces, and anti-tarnish fashion jewelry. We curate trendsetting style essentials to help you express your confidence effortless and shine anywhere you go.
-      </p>
-    </div>
-  </section>
-
-  <!-- MAIN CATALOG (NO SEARCH BAR AREA) -->
+  <!-- MAIN CATALOG & FILTERS -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
 
+    <!-- CONTROL PANEL (SEARCH, SORT, FILTER) -->
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gold-light mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+      
+      <!-- SEARCH INPUT -->
+      <div class="relative w-full md:w-1/3">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-gray-400 text-sm"></i>
+        <input type="text" id="searchInput" oninput="applyControls()" placeholder="Search nails, lashes, jewelry..." class="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-xl text-xs font-medium focus:outline-none focus:border-gold bg-blush">
+      </div>
+
+      <div class="flex flex-wrap sm:flex-nowrap gap-3 w-full md:w-auto justify-end">
+        <!-- CATEGORY DROPDOWN -->
+        <select id="categorySelect" onchange="filterCategory(this.value)" class="w-full sm:w-auto px-3 py-2.5 border border-gray-200 rounded-xl text-xs font-semibold bg-blush text-gray-700 focus:outline-none focus:border-gold">
+          <option value="all">All Categories</option>
+          <option value="nails">Nails</option>
+          <option value="eyelashes">Eyelashes</option>
+          <option value="hair">Hair</option>
+          <option value="jewelry">Jewelry</option>
+          <option value="beauty">Beauty</option>
+          <option value="fashion">Fashion</option>
+        </select>
+
+        <!-- SORT DROPDOWN -->
+        <select id="sortSelect" onchange="applyControls()" class="w-full sm:w-auto px-3 py-2.5 border border-gray-200 rounded-xl text-xs font-semibold bg-blush text-gray-700 focus:outline-none focus:border-gold">
+          <option value="default">Sort By: Featured</option>
+          <option value="low-high">Price: Low to High</option>
+          <option value="high-low">Price: High to Low</option>
+          <option value="rating">Highest Rated</option>
+        </select>
+      </div>
+
+    </div>
+
     <!-- PRODUCT GRID -->
-    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- Dynamically Injected -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- NO PRODUCTS MSG -->
+    <div id="noProducts" class="hidden text-center py-16">
+      <i class="fa-solid fa-sparkles text-4xl text-gold mb-3"></i>
+      <p class="text-base text-gray-600 font-semibold">No products found matching your search.</p>
+      <button onclick="resetFilters()" class="mt-3 px-5 py-2 bg-charcoal text-white rounded-full text-xs font-bold uppercase tracking-wider">Reset Filters</button>
     </div>
 
   </main>
 
   <!-- CONTACT & FOOTER SECTION -->
-  <footer class="bg-charcoal text-gray-300 mt-16 border-t border-gold/30">
+  <footer class="bg-charcoal text-gray-300 mt-16 border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- BRAND DESCRIPTION -->
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <img src="image_3.png" alt="Glitzkart Logo" class="h-12 w-12 rounded-full border border-gold object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/50/1A1A1A/D4AF37?text=GK';">
+            <img src="image_3.png" alt="Glitzkart Logo" class="h-12 w-12 rounded-full border border-gold object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/40?text=GK';">
             <div>
-              <span class="text-lg font-bold text-gold-light tracking-widest">GLITZKART</span>
-              <p class="text-[10px] text-gold">THE ULTIMATE DESTINATION FOR TRENDSETTERS</p>
+              <span class="text-lg font-bold text-white tracking-widest">GLITZKART</span>
+              <p class="text-[10px] text-gold-light">THE ULTIMATE DESTINATION FOR TRENDSETTERS</p>
             </div>
           </div>
           <p class="text-xs text-gray-400 leading-relaxed">
@@ -151,19 +180,19 @@
 
         <!-- QUICK CATEGORY LINKS -->
         <div>
-          <h4 class="text-xs font-bold text-gold uppercase tracking-widest mb-4">Categories</h4>
+          <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Categories</h4>
           <ul class="space-y-2 text-xs font-medium">
-            <li><a href="#" onclick="filterCategory('nails')" class="hover:text-gold-light transition">Nails & Accessories</a></li>
-            <li><a href="#" onclick="filterCategory('eyelashes')" class="hover:text-gold-light transition">3D Lash Extensions</a></li>
-            <li><a href="#" onclick="filterCategory('hair')" class="hover:text-gold-light transition">Hair Extensions</a></li>
-            <li><a href="#" onclick="filterCategory('jewelry')" class="hover:text-gold-light transition">Fashion Jewelry</a></li>
-            <li><a href="#" onclick="filterCategory('beauty')" class="hover:text-gold-light transition">Beauty & Cosmetics</a></li>
+            <li><a href="#" onclick="filterCategory('nails')" class="hover:text-gold transition">Nails & Accessories</a></li>
+            <li><a href="#" onclick="filterCategory('eyelashes')" class="hover:text-gold transition">3D Lash Extensions</a></li>
+            <li><a href="#" onclick="filterCategory('hair')" class="hover:text-gold transition">Hair Extensions</a></li>
+            <li><a href="#" onclick="filterCategory('jewelry')" class="hover:text-gold transition">Fashion Jewelry</a></li>
+            <li><a href="#" onclick="filterCategory('beauty')" class="hover:text-gold transition">Beauty & Cosmetics</a></li>
           </ul>
         </div>
 
         <!-- CONTACT DETAILS -->
         <div id="contact-us">
-          <h4 class="text-xs font-bold text-gold uppercase tracking-widest mb-4">Contact Us</h4>
+          <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Contact Us</h4>
           <ul class="space-y-3 text-xs font-medium">
             <li class="flex items-center space-x-3">
               <i class="fa-solid fa-envelope text-gold"></i>
@@ -185,15 +214,15 @@
       <!-- COPYRIGHT & DEVELOPER CREDITS -->
       <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
         <p>&copy; 2026 Glitzkart. All rights reserved.</p>
-        <p class="mt-2 md:mt-0">Website developed and maintained by <span class="text-gold-light font-semibold">Swaym Tech Labs</span></p>
+        <p class="mt-2 md:mt-0">Website developed and maintained by <span class="text-gray-300 font-semibold">Swaym Tech Labs</span></p>
       </div>
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
+  <!-- FLOATING WHATSAPP BUTTON (PLACED RIGHT SIDE JUST BELOW MIDDLE) -->
   <button onclick="openGeneralInquiry()" 
      aria-label="Chat on WhatsApp"
-     class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl z-50 flex items-center justify-center transition-transform transform hover:scale-110">
+     class="fixed top-2/3 right-4 -translate-y-1/2 bg-green-500 hover:bg-green-600 text-white rounded-full p-3.5 shadow-2xl z-50 flex items-center justify-center transition-transform transform hover:scale-110">
     <i class="fa-brands fa-whatsapp text-3xl"></i>
   </button>
 
@@ -221,12 +250,12 @@
       <form id="whatsappForm" onsubmit="submitToWhatsApp(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Your Name *</label>
-          <input type="text" id="custName" required placeholder="Enter your full name" class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-gold bg-gold-glow">
+          <input type="text" id="custName" required placeholder="Enter your full name" class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-gold bg-blush">
         </div>
 
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Your Contact / WhatsApp Number *</label>
-          <input type="tel" id="custPhone" required placeholder="Enter 10-digit mobile number" class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-gold bg-gold-glow">
+          <input type="tel" id="custPhone" required placeholder="Enter 10-digit mobile number" class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-gold bg-blush">
         </div>
 
         <div>
@@ -236,7 +265,7 @@
 
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Custom Message / Note (Optional)</label>
-          <textarea id="custNote" rows="2" placeholder="Ask about size, custom colors, or bulk order details..." class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-gold bg-gold-glow"></textarea>
+          <textarea id="custNote" rows="2" placeholder="Ask about size, custom colors, or bulk order details..." class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-gold bg-blush"></textarea>
         </div>
 
         <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold text-xs uppercase tracking-widest py-3 rounded-xl flex items-center justify-center space-x-2 transition shadow-md">
@@ -250,16 +279,16 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // HIGH-RELIABILITY BEAUTY PRODUCT IMAGES
+    // PRODUCT CATALOG DATA
     const products = [
-      { id: 1, name: "Luxury French Gel Press-On Nails", category: "nails", price: 499, rating: 4.9, image: "https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=600" },
-      { id: 2, name: "3D Voluminous Mink Eyelashes", category: "eyelashes", price: 349, rating: 4.8, image: "https://images.pexels.com/photos/2688992/pexels-photo-2688992.jpeg?auto=compress&cs=tinysrgb&w=600" },
-      { id: 3, name: "Seamless Clip-in Hair Extensions", category: "hair", price: 1299, rating: 4.7, image: "https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=600" },
-      { id: 4, name: "Golden Anti-Tarnish Kundan Jhumka", category: "jewelry", price: 799, rating: 4.9, image: "https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=600" },
-      { id: 5, name: "Velvet Matte Liquid Lipstick Set", category: "beauty", price: 599, rating: 4.6, image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=600" },
-      { id: 6, name: "Minimalist Layered Gold Chain", category: "fashion", price: 449, rating: 4.5, image: "https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=600" },
-      { id: 7, name: "Almond Shaped Designer Press-On Set", category: "nails", price: 399, rating: 4.8, image: "https://images.pexels.com/photos/3997383/pexels-photo-3997383.jpeg?auto=compress&cs=tinysrgb&w=600" },
-      { id: 8, name: "Natural Wispy Everyday Lash Set", category: "eyelashes", price: 299, rating: 4.9, image: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600" }
+      { id: 1, name: "Luxury French Gel Press-On Nails", category: "nails", price: 499, rating: 4.9, image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=500&q=80" },
+      { id: 2, name: "3D Voluminous Silk Eyelashes", category: "eyelashes", price: 349, rating: 4.8, image: "https://images.unsplash.com/photo-1583001809873-a1284d5630be?auto=format&fit=crop&w=500&q=80" },
+      { id: 3, name: "Seamless Clip-in Hair Extensions", category: "hair", price: 1299, rating: 4.7, image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" },
+      { id: 4, name: "Gold Plated Anti-Tarnish Kundan Jhumka", category: "jewelry", price: 799, rating: 4.9, image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80" },
+      { id: 5, name: "Long-Wear Velvet Matte Lipstick Kit", category: "beauty", price: 599, rating: 4.6, image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80" },
+      { id: 6, name: "Minimalist Layered Gold Chain", category: "fashion", price: 449, rating: 4.5, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80" },
+      { id: 7, name: "Almond Shaped Designer Press-On Set", category: "nails", price: 399, rating: 4.8, image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=500&q=80" },
+      { id: 8, name: "Natural Wispy Soft Lash Set", category: "eyelashes", price: 299, rating: 4.9, image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=500&q=80" }
     ];
 
     let currentCategory = "all";
@@ -277,44 +306,77 @@
     // CATEGORY FILTERING
     function filterCategory(cat) {
       currentCategory = cat;
+      document.getElementById("categorySelect").value = cat;
 
       const buttons = document.querySelectorAll('.nav-btn');
       buttons.forEach(btn => {
         if(btn.dataset.cat === cat) {
-          btn.classList.add('text-gold-dark', 'border-gold');
+          btn.classList.add('text-gold', 'border-gold');
         } else {
-          btn.classList.remove('text-gold-dark', 'border-gold');
+          btn.classList.remove('text-gold', 'border-gold');
         }
       });
 
-      const filtered = cat === "all" ? products : products.filter(p => p.category === cat);
+      applyControls();
+    }
+
+    // COMBINED CONTROLS (SEARCH, FILTER, SORT)
+    function applyControls() {
+      const searchValue = document.getElementById("searchInput").value.toLowerCase();
+      const sortValue = document.getElementById("sortSelect").value;
+
+      let filtered = products.filter(p => {
+        return currentCategory === "all" || p.category === currentCategory;
+      });
+
+      if (searchValue.trim() !== "") {
+        filtered = filtered.filter(p => p.name.toLowerCase().includes(searchValue));
+      }
+
+      if (sortValue === "low-high") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortValue === "high-low") {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortValue === "rating") {
+        filtered.sort((a, b) => b.rating - a.rating);
+      }
+
       renderProducts(filtered);
     }
 
     // RENDER PRODUCTS
     function renderProducts(items) {
       const grid = document.getElementById("productGrid");
+      const noProducts = document.getElementById("noProducts");
+
       grid.innerHTML = "";
+
+      if (items.length === 0) {
+        noProducts.classList.remove("hidden");
+        return;
+      } else {
+        noProducts.classList.add("hidden");
+      }
 
       items.forEach(product => {
         const card = document.createElement("div");
-        card.className = "bg-white rounded-2xl shadow-sm border border-gold-light/60 overflow-hidden hover:shadow-xl transition duration-300 flex flex-col justify-between group";
+        card.className = "bg-white rounded-2xl shadow-sm border border-gold-light overflow-hidden hover:shadow-xl transition duration-300 flex flex-col justify-between group";
         card.innerHTML = `
           <div>
-            <div class="relative h-60 bg-gray-100 overflow-hidden">
-              <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300/F4E8C1/1A1A1A?text=Glitzkart+Product';">
+            <div class="relative h-56 bg-gray-100 overflow-hidden">
+              <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
               <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-charcoal text-xs px-2.5 py-1 rounded-full font-bold shadow-sm">
                 ★ ${product.rating}
               </span>
             </div>
-            <div class="p-5">
+            <div class="p-4">
               <span class="text-[10px] uppercase font-extrabold text-gold-dark tracking-widest">${product.category}</span>
               <h3 class="text-xs font-bold text-charcoal mt-1 line-clamp-1">${product.name}</h3>
-              <p class="text-base font-extrabold text-gold-dark mt-2">₹${product.price}</p>
+              <p class="text-base font-extrabold text-charcoal mt-2">₹${product.price}</p>
             </div>
           </div>
-          <div class="p-5 pt-0">
-            <button onclick="openProductInquiry('${product.name}', ${product.price})" class="w-full bg-charcoal hover:bg-gold-dark text-white text-xs font-bold uppercase tracking-widest py-3 rounded-xl flex items-center justify-center space-x-2 transition shadow-sm">
+          <div class="p-4 pt-0">
+            <button onclick="openProductInquiry('${product.name}', ${product.price})" class="w-full bg-charcoal hover:bg-gold text-white text-xs font-bold uppercase tracking-widest py-2.5 rounded-xl flex items-center justify-center space-x-2 transition shadow-sm">
               <i class="fa-brands fa-whatsapp text-green-400 text-base"></i>
               <span>Inquire / Order</span>
             </button>
@@ -355,10 +417,17 @@
                       (note ? `📝 *Note:* ${encodeURIComponent(note)}%0A` : '') +
                       `%0AHello Glitzkart team, please share availability and ordering details!`;
 
+      // Open WhatsApp directly to 8149412575
       window.open(`https://wa.me/918149412575?text=${message}`, '_blank');
       
       closeModal();
       document.getElementById("whatsappForm").reset();
+    }
+
+    function resetFilters() {
+      document.getElementById("searchInput").value = "";
+      document.getElementById("sortSelect").value = "default";
+      filterCategory("all");
     }
   </script>
 </body>
